@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Built with GPT-6 Astra · The Recording Club</title>
+<meta name="description" content="A film about everything GPT-6 Astra built for The Recording Club in Los Angeles, September 4 to October 7, 2026.">
+<meta property="og:title" content="Built with GPT-6 Astra">
+<meta property="og:description" content="The Recording Club, Los Angeles. September 4 to October 7, 2026.">
+<meta property="og:image" content="https://astra.gregspero.com/img/poster.jpg">
+<meta property="og:type" content="video.other">
+<meta name="theme-color" content="#0B1220">
+<link rel="preload" href="fonts/big-shoulders-display-latin.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Big Shoulders Display";src:url("fonts/big-shoulders-display-latin.woff2") format("woff2");font-weight:100 900;font-display:swap}
+@font-face{font-family:"Newsreader";src:url("fonts/newsreader-latin.woff2") format("woff2");font-weight:200 800;font-display:swap}
+@font-face{font-family:"Newsreader";src:url("fonts/newsreader-italic-latin.woff2") format("woff2");font-weight:200 800;font-style:italic;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url("fonts/plex-mono-400.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url("fonts/plex-mono-500.woff2") format("woff2");font-weight:500;font-display:swap}
+:root{
+  --ink:#0B1220;--panel:#131C2E;--panel-2:#1A2539;--paper:#ECE6DA;--muted:#9AA3B3;--amber:#F2A541;--line:rgba(236,230,218,.16);
+  --display:"Big Shoulders Display","Oswald",sans-serif;--serif:"Newsreader",Georgia,serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ink);color:var(--paper);font:400 18px/1.45 var(--serif);padding-inline:max(16px,env(safe-area-inset-left));padding-block:0}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--amber);outline-offset:3px;border-radius:4px}
+.wrap{margin-inline:auto;width:min(100%,1280px)}
+header.mast{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:20px 18px;flex-wrap:wrap}
+header.mast img{height:28px;width:auto;display:block}
+header.mast .date{font:400 13px var(--mono);color:var(--muted);letter-spacing:.04em}
+h1{font:800 clamp(44px,8vw,104px)/.95 var(--display);margin:8px 0 6px;letter-spacing:.005em}
+h1 em{font-style:normal;color:var(--amber)}
+.sub{font:italic 400 clamp(19px,2.4vw,26px)/1.3 var(--serif);color:var(--paper);margin:0 0 22px;max-width:60ch}
+/* hero player */
+.player{position:relative;border-radius:12px;overflow:hidden;background:#05080F;box-shadow:0 0 0 1px var(--line),0 30px 80px rgba(0,0,0,.45);aspect-ratio:16/9}
+.player video{display:block;width:100%;height:100%;background:#05080F}
+.sound{position:absolute;left:16px;bottom:64px;display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:10px 18px;border:0;border-radius:999px;background:var(--amber);color:var(--ink);font:500 15px var(--mono);cursor:pointer;transition:opacity .2s ease,transform .2s ease}
+.sound:hover{transform:translateY(-1px)}
+.sound[hidden]{display:none}
+.sound svg{width:16px;height:16px}
+.dimrule{display:flex;align-items:center;gap:12px;margin:14px 0 0;font:400 13px var(--mono);color:var(--muted)}
+.dimrule::before,.dimrule::after{content:"";height:10px;width:2px;background:var(--amber)}
+.dimrule span{flex:1;height:1px;background:var(--line)}
+.dimrule b{font-weight:500;color:var(--paper)}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin:20px 0 8px}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:12px 20px;border-radius:8px;text-decoration:none;font:500 15px var(--mono);border:1px solid var(--line);background:var(--panel);transition:background-color .2s ease,border-color .2s ease}
+.btn:hover{background:var(--panel-2);border-color:rgba(242,165,65,.6)}
+.btn.primary{background:var(--amber);color:var(--ink);border-color:var(--amber)}
+.btn.primary:hover{background:#F6B65F}
+.btn small{font-weight:400;opacity:.75}
+/* sections */
+section{padding-block:44px 8px;border-top:1px solid var(--line);margin-top:40px}
+h2{font:800 clamp(32px,4.6vw,52px)/1 var(--display);margin:0 0 22px;letter-spacing:.01em}
+.counts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:18px 28px;margin:0;padding:0;list-style:none}
+.counts li{border-top:2px solid var(--amber);padding-top:12px}
+.counts .n{display:block;font:800 clamp(48px,6vw,72px)/1 var(--display);font-variant-numeric:tabular-nums}
+.counts .l{display:block;font-size:17px;color:var(--muted);margin-top:6px}
+.note{font:400 13px/1.5 var(--mono);color:var(--muted);margin:16px 0 0;max-width:80ch}
+ol.chapters{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.chap{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 20px;padding:18px;border-radius:10px;background:var(--panel);border:1px solid var(--line)}
+.tc{min-height:44px;min-width:76px;align-self:start;border:1px solid rgba(242,165,65,.55);border-radius:6px;background:transparent;color:var(--amber);font:500 16px var(--mono);cursor:pointer;font-variant-numeric:tabular-nums;transition:background-color .2s ease}
+.tc:hover{background:rgba(242,165,65,.12)}
+.chap h3{font:700 clamp(22px,2.6vw,28px)/1.1 var(--display);margin:6px 0 4px;letter-spacing:.01em}
+.chap .what{margin:0 0 10px;color:var(--muted);font-size:17px;max-width:60ch}
+.links{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.links a,.links .priv{display:inline-flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;font:400 15px var(--mono);min-height:32px;padding-block:4px;overflow-wrap:anywhere}
+.links a{color:var(--amber);text-decoration:underline;text-decoration-color:rgba(242,165,65,.4);text-underline-offset:4px}
+.links a:hover{text-decoration-color:var(--amber)}
+.links .tag{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-decoration:none}
+.links .priv{color:var(--paper)}
+details{background:var(--panel);border:1px solid var(--line);border-radius:10px}
+summary{cursor:pointer;min-height:56px;display:flex;align-items:center;gap:12px;padding:14px 18px;font:700 clamp(22px,2.6vw,28px)/1.1 var(--display);list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"+";font:500 22px var(--mono);color:var(--amber);width:18px}
+details[open] summary::before{content:"\2212"}
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:16px;padding:0 18px 18px}
+.split h4{font:500 13px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--amber);margin:6px 0 10px}
+.split ul{margin:0;padding-left:18px;display:grid;gap:8px;font-size:17px}
+.split li{max-width:60ch}
+footer{border-top:1px solid var(--line);margin-top:48px;padding-block:24px max(28px,env(safe-area-inset-bottom));font:400 13px/1.6 var(--mono);color:var(--muted);display:grid;gap:6px}
+footer b{color:var(--paper);font-weight:500}
+@media (max-width:560px){
+  body{font-size:17px}
+  .sound{left:10px;bottom:56px;font-size:14px;padding:8px 14px}
+  .chap{grid-template-columns:minmax(0,1fr);padding:14px}
+  .tc{justify-self:start}
+  .btn{width:100%;justify-content:space-between}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="mast">
+  <img src="img/trc-lockup.png" width="742" height="120" alt="The Recording Club">
+  <span class="date">Los Angeles · Sep 4 to Oct 7, 2026</span>
+</header>
+
+<main>
+<h1>Built with <em>GPT-6 Astra</em></h1>
+<p class="sub">Everything Astra built for The Recording Club in 34 days.</p>
+
+<div class="player">
+  <video id="film" controls playsinline muted preload="metadata" poster="img/poster.jpg" width="1920" height="1080">
+    <source src="media/astra-demo-film-v1.0.mp4" type="video/mp4">
+  </video>
+  <button class="sound" id="sound" type="button" aria-label="Play the film from the start with sound">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 9v6h4l5 4V5L7 9H3zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>
+    Play with sound
+  </button>
+</div>
+<div class="dimrule"><b>3:40</b><span></span>1920 x 1080 · narrated · music made with Astra</div>
+
+<div class="actions">
+  <a class="btn primary" href="media/astra-demo-film-v1.0.mp4" download>Download 1080p <small>65 MB</small></a>
+  <a class="btn" href="media/astra-demo-film-720p-v1.0.mp4" download>Download 720p <small>24 MB</small></a>
+</div>
+
+<section aria-labelledby="h-count">
+  <h2 id="h-count">By the numbers</h2>
+  <ul class="counts">
+    <li><span class="n">2,626</span><span class="l">Astra sessions</span></li>
+    <li><span class="n">1,187</span><span class="l">files patched on the 3D model</span></li>
+    <li><span class="n">2,674</span><span class="l">images generated</span></li>
+    <li><span class="n">9</span><span class="l">builds</span></li>
+    <li><span class="n">34</span><span class="l">days</span></li>
+  </ul>
+  <p class="note">Counted from Codex session records, Sep 4 to Oct 7, 2026. File counts include the GPT subagents Astra sessions direct.</p>
+</section>
+
+<section aria-labelledby="h-chap">
+  <h2 id="h-chap">Every build in the film</h2>
+  <ol class="chapters">
+    <li class="chap">
+      <button class="tc" type="button" data-t="0">0:00</button>
+      <div><h3>The first request</h3>
+      <p class="what">Sep 4, 9:32 pm: Greg asks Astra, in a Codex terminal, to build a 3D model of the club.</p></div>
+    </li>
+    <li class="chap">
+      <button class="tc" type="button" data-t="25">0:25</button>
+      <div><h3>The whole studio in 3D</h3>
+      <p class="what">A walkable model of 19 spaces, built from photos and video, with a measure tool.</p>
+      <ul class="links">
+        <li><a href="https://model.therecording.club/">model.therecording.club <span class="tag">live</span></a></li>
+      </ul></div>
+    </li>
+    <li class="chap">
+      <button class="tc" type="button" data-t="65">1:05</button>
+      <div><h3>Rehearsal Room 2</h3>
+      <p class="what">Renders, a true-size furniture planner, a 3D view, a priced budget and an install guide.</p>
+      <ul class="links">
+        <li><a href="https://rehearsalroom.therecording.club/">rehearsalroom.therecording.club <span class="tag">live</span></a></li>
+        <li><a href="https://rehearsalroom.therecording.club/layout.html">rehearsalroom.therecording.club/layout.html <span class="tag">planner</span></a></li>
+        <li><a href="https://rehearsalroom.therecording.club/budget-v1.6.html">rehearsalroom.therecording.club/budget-v1.6.html <span class="tag">budget</span></a></li>
+      </ul></div>
+    </li>
+    <li class="chap">
+      <button class="tc" type="button" data-t="105.5">1:45</button>
+      <div><h3>Music</h3>
+      <p class="what">Mini Producer Studio, Franklin's Tower rebuilt for the dance floor, and Shakedown Street as house.</p>
+      <ul class="links">
+        <li><a href="https://daylight-club-listening.pages.dev/">daylight-club-listening.pages.dev <span class="tag">listen</span></a></li>
+        <li><a href="https://shakedown.gregspero.com/">shakedown.gregspero.com <span class="tag">A/B player</span></a></li>
+        <li><span class="priv">Mini Producer Studio <span class="tag">desktop app, not public</span></span></li>
+      </ul></div>
+    </li>
+    <li class="chap">
+      <button class="tc" type="button" data-t="147.6">2:27</button>
+      <div><h3>The system around it</h3>
+      <p class="what">GPT Grid on the phone, the Imagery agent, the Control Room redesign and the Judge room.</p>
+      <ul class="links">
+        <li><span class="priv">GPT Grid phone walkie <span class="tag">private, auth-gated</span></span></li>
+        <li><span class="priv">Imagery agent <span class="tag">private, auth-gated</span></span></li>
+        <li><span class="priv">TRC Control Room <span class="tag">runs locally, shown on sample data</span></span></li>
+        <li><span class="priv">Judge room <span class="tag">runs locally</span></span></li>
+      </ul></div>
+    </li>
+    <li class="chap">
+      <button class="tc" type="button" data-t="189.6">3:09</button>
+      <div><h3>By the numbers</h3>
+      <p class="what">2,626 sessions, 1,187 files, 2,674 images, 9 builds, 34 days.</p></div>
+    </li>
+    <li class="chap">
+      <button class="tc" type="button" data-t="201.6">3:21</button>
+      <div><h3>Room for Revision</h3>
+      <p class="what">The documentary proposal Astra wrote about this project.</p>
+      <ul class="links">
+        <li><a href="https://rehearsalroom.therecording.club/astra-room-documentary-v1.0.html">rehearsalroom.therecording.club/astra-room-documentary-v1.0.html <span class="tag">proposal</span></a></li>
+      </ul></div>
+    </li>
+  </ol>
+</section>
+
+<section aria-labelledby="h-who">
+  <h2 id="h-who">Who built what</h2>
+  <details>
+    <summary>What Astra did, and what Claude did</summary>
+    <div class="split">
+      <div>
+        <h4>GPT-6 Astra, through Codex</h4>
+        <ul>
+          <li>The whole-studio 3D model and its measure tool.</li>
+          <li>Its own Rehearsal Room 2 design: renders, planner, 3D, budget, install guide.</li>
+          <li>Mini Producer Studio, the Franklin's Tower rebuild and its films.</li>
+          <li>The Shakedown Street house rework and its A/B page.</li>
+          <li>The Control Room admin redesign and the Room for Revision proposal.</li>
+          <li>Judge room reviews of Claude's nightly rule proposals.</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Claude</h4>
+        <ul>
+          <li>A competing Rehearsal Room plan, which a review picked for the physical build.</li>
+          <li>The handoff pack Astra started from, and the original Mini Producer.</li>
+          <li>The image briefs. The pixels come from OpenAI's image tool run in Astra sessions.</li>
+          <li>This film and this page.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="note" style="padding:0 18px 18px;margin:0">The 3D walkthrough and measure shots use the v27 whole-studio preview build. The live site runs the default view. Sources: Codex session records and Greg's prompt history.</p>
+  </details>
+</section>
+</main>
+
+<footer>
+  <span><b>Greg Spero</b> · The Recording Club, Los Angeles</span>
+  <span>Music: Shakedown Street house rework and Franklin's Tower rebuild, made with GPT-6 Astra.</span>
+  <span>Narration: synthetic voice.</span>
+</footer>
+</div>
+<script>
+(function(){
+  var v=document.getElementById('film'), s=document.getElementById('sound');
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce){ v.autoplay=true; var p=v.play(); if(p&&p.catch){p.catch(function(){});} }
+  s.addEventListener('click',function(){ v.currentTime=0; v.muted=false; v.play(); s.hidden=true; });
+  v.addEventListener('volumechange',function(){ if(!v.muted){ s.hidden=true; } });
+  document.querySelectorAll('.tc').forEach(function(b){
+    b.addEventListener('click',function(){
+      v.currentTime=parseFloat(b.getAttribute('data-t'));
+      v.muted=false; s.hidden=true; v.play();
+      v.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});
+    });
+  });
+})();
+</script>
+</body>
+</html>
