@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Built with GPT-6 Astra · The Recording Club</title>
-<meta name="description" content="A film about everything GPT-6 Astra built for The Recording Club in Los Angeles, September 4 to October 7, 2026.">
+<meta name="description" content="A film about what Greg Spero built with GPT-6 Astra in 34 days: The Recording Club in 3D, a new room, music and the system behind it. September 4 to October 7, 2026.">
 <meta property="og:title" content="Built with GPT-6 Astra">
 <meta property="og:description" content="The Recording Club, Los Angeles. September 4 to October 7, 2026.">
 <meta property="og:image" content="https://astra.gregspero.com/img/poster.jpg">
@@ -35,7 +35,8 @@ h1{font:800 clamp(44px,7vw,84px)/.95 var(--display);margin:8px 0 6px;letter-spac
 h1 em{font-style:normal;color:var(--amber)}
 .sub{font:italic 400 clamp(19px,2.4vw,26px)/1.3 var(--serif);color:var(--paper);margin:0 0 22px;max-width:60ch}
 /* hero player */
-.player{position:relative;margin-inline:auto;width:min(100%,calc((100svh - 230px) * 16 / 9));min-width:min(100%,640px);border-radius:12px;overflow:hidden;background:#05080F;box-shadow:0 0 0 1px var(--line),0 30px 80px rgba(0,0,0,.45);aspect-ratio:16/9}
+.hero{position:relative;margin-inline:auto;width:min(100%,calc((100svh - 230px) * 16 / 9));min-width:min(100%,640px)}
+.player{position:relative;width:100%;border-radius:12px;overflow:hidden;background:#05080F;box-shadow:0 0 0 1px var(--line),0 30px 80px rgba(0,0,0,.45);aspect-ratio:16/9}
 .player video{display:block;width:100%;height:100%;background:#05080F}
 .sound{position:absolute;left:16px;bottom:64px;display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:10px 18px;border:0;border-radius:999px;background:var(--amber);color:var(--ink);font:500 15px var(--mono);cursor:pointer;transition:opacity .2s ease,transform .2s ease}
 .sound:hover{transform:translateY(-1px)}
@@ -84,8 +85,7 @@ footer{border-top:1px solid var(--line);margin-top:48px;padding-block:24px max(2
 footer b{color:var(--paper);font-weight:500}
 @media (max-width:560px){
   body{font-size:17px}
-  .sound{left:8px;top:8px;bottom:auto;font-size:13px;min-height:36px;padding:6px 12px}
-  .sound svg{width:14px;height:14px}
+  .sound{position:static;margin-top:12px;width:100%;justify-content:center;min-height:48px}
   .dimrule::after{display:none}
   .dimrule span{min-width:40px}
   .chap{grid-template-columns:minmax(0,1fr);padding:14px}
@@ -104,12 +104,14 @@ footer b{color:var(--paper);font-weight:500}
 
 <main>
 <h1>Built with <em>GPT-6 Astra</em></h1>
-<p class="sub">Everything Astra built for The Recording Club in 34 days.</p>
+<p class="sub">34 days with Astra: the club in 3D, a new room, music, and the system behind it.</p>
 
+<div class="hero">
 <div class="player">
   <video id="film" controls playsinline muted preload="metadata" poster="img/poster.jpg" width="1920" height="1080">
-    <source src="media/astra-demo-film-v1.0.mp4" type="video/mp4">
+    <source src="media/astra-demo-film-v1.1.mp4" type="video/mp4">
   </video>
+</div>
   <button class="sound" id="sound" type="button" aria-label="Play the film from the start with sound">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 9v6h4l5 4V5L7 9H3zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg>
     Play with sound
@@ -118,8 +120,8 @@ footer b{color:var(--paper);font-weight:500}
 <div class="dimrule"><b>3:40</b><span></span>1920 x 1080 · narrated · music made with Astra</div>
 
 <div class="actions">
-  <a class="btn primary" href="media/astra-demo-film-v1.0.mp4" download>Download 1080p <small>65 MB</small></a>
-  <a class="btn" href="media/astra-demo-film-720p-v1.0.mp4" download>Download 720p <small>24 MB</small></a>
+  <a class="btn primary" href="media/astra-demo-film-v1.1.mp4" download>Download 1080p <small>65 MB</small></a>
+  <a class="btn" href="media/astra-demo-film-720p-v1.1.mp4" download>Download 720p <small>24 MB</small></a>
 </div>
 
 <section aria-labelledby="h-count">
@@ -166,7 +168,7 @@ footer b{color:var(--paper);font-weight:500}
       <p class="what">Mini Producer Studio, Franklin's Tower rebuilt for the dance floor, and Shakedown Street as house.</p>
       <ul class="links">
         <li><a href="https://daylight-club-listening.pages.dev/">daylight-club-listening.pages.dev <span class="tag">listen</span></a></li>
-        <li><a href="https://shakedown.gregspero.com/">shakedown.gregspero.com <span class="tag">A/B player</span></a></li>
+        <li><a href="https://shakedown.gregspero.com/">shakedown.gregspero.com <span class="tag">A/B player, made for Chase Koch</span></a></li>
         <li><span class="priv">Mini Producer Studio <span class="tag">desktop app, not public</span></span></li>
       </ul></div>
     </li>
@@ -230,7 +232,7 @@ footer b{color:var(--paper);font-weight:500}
 
 <footer>
   <span><b>Greg Spero</b> · The Recording Club, Los Angeles</span>
-  <span>Music: Shakedown Street house rework and Franklin's Tower rebuild, made with GPT-6 Astra.</span>
+  <span>Music: Shakedown Street house rework and Franklin's Tower rebuild with Suno backing, made with GPT-6 Astra.</span>
   <span>Narration: synthetic voice.</span>
 </footer>
 </div>
